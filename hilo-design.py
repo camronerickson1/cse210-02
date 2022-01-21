@@ -2,7 +2,7 @@
 
 Camron: Director attributes, start_game, get_inputs, README file.
 Monika: do_outputs, change_score.
-Jonathan: keep_playing, Card(), main file.
+Jonathan: keep_playing, Card(), main file
 
 Director
 
@@ -41,5 +41,5 @@ Director
             set new card to current card
 
 Card
-    create card
+    create_card  # changed this to be one word create_card
 """
