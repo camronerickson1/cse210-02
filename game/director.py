@@ -5,7 +5,20 @@ from .card import Card  # Jonathan put the dot in front of card, we can remove i
 class Director:
     # We need to put comments here
     
+    
+    def __init__(self):
+        """Initial method to set needed attributes"""
 
+        self.is_playing= True
+        self.score= 0
+        self.current_card= Card()
+        self.new_card= Card()
+
+    def start_game(self):
+        """Starts game by running the main loop."""
+        while self.is_playing:
+            self.get_inputs()
+            self.do_outputs()
 
 
 
