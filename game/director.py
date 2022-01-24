@@ -1,5 +1,4 @@
-from .card import Card  # Jonathan put the dot in front of card, we can remove it if it causes problems
-                        # but for me it was needed to see that it is in the same directory
+from card import Card
 
 
 class Director:
@@ -23,7 +22,19 @@ class Director:
 
 
     def keep_playing(self):
-        # Jonathan working on this one, still have to add to this
-        # Need to put comments here
+        # This method asks player if they want to play again
+        # if they want to play again then set self.is_playing to be True, else set it False
+        
+        # Ask question if they want to keep playing and put into a temp variable
+        player_input = input("Do you want to play again? [y/n]: ")
 
-        return # this will be removed later
+        # Set self.is_playing to be True or False based upon the y or n answer
+        if player_input.lower() == "y":
+            self.is_playing = True
+        else:
+            self.is_playing = False  # since they answer wasn't "y" assume it is "n" or an invalid response
+            return # skip the last line in this method since they won't be playing anymore
+       
+        # If they want to play again, then the next round's "current_card" will be equal to
+        # the current round's "new_card"
+        self.current_card = self.new_card

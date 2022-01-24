@@ -38,7 +38,8 @@ Director
         keep_playing:
             ask question
             change "is_playing" if needed
-            set new card to current card
+            set new card to current card  (Jonathan's comment. I write it according to this logic: If they want to play again, 
+                    then the next round's "current_card" will be equal to the current round's "new_card")
 
 Card
     create_card  # changed this to be one word create_card
