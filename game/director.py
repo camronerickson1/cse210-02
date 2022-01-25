@@ -20,6 +20,14 @@ class Director:
             self.get_inputs()
             self.do_outputs()
 
+    def get_inputs(self):
+        """Displays the current and gets user input"""
+
+        #display the current card
+        print(f"The card is: {self.current_card}")
+        #ask user for their guess
+        self.players_guess = input("Higher or lower? [h/l] ")
+
     def do_outputs(self):
         """Displays new_card's value.  Calls the change_score method.  Determines if the score has dropped to 0 and calls keep_playing method if >0.
         
