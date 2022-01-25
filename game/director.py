@@ -1,4 +1,4 @@
-from card import Card
+from game.card import Card
 
 
 class Director:
@@ -9,7 +9,7 @@ class Director:
         """Initial method to set needed attributes"""
 
         self.is_playing= True
-        self.score= 0
+        self.score= 300
         self.current_card= Card()
         self.new_card= Card()
 
@@ -19,7 +19,34 @@ class Director:
             self.get_inputs()
             self.do_outputs()
 
+    def do_outputs(self):
+        """Displays new_card's value.  Calls the change_score method.  Determines if the score has dropped to 0 and calls keep_playing method if >0.
+        
+            Args: self (Director): an instance of Director.
+        """
+        #get new card
+        self.new_card = Card()
+        #display new_card value
+        print(f'The next card is: {self.new_card}') 
+        #display new score
+        print(f'Your score is: {self.change_score()}')
+        if (self.change_score()!= 0):
+            #call "keep_playing()"
+            self.keep_playing()
+        else:
+            print("Sorry your score has reached 0.  Game Over.")
 
+            
+    def change_score(self):
+        """Calculates and displays the current score based the players last guess.
+        
+            Args: self (Director): an instance of Director.
+        """
+        if (self.players_guess.lower() == 'h' and self.new_card > self.current_card) or(self.players_guess.lower() == 'l' and self.new_card < self.current_card):
+            self.score+=100
+        else:
+            self.score -=75
+        return self.score
 
     def keep_playing(self):
         # This method asks player if they want to play again
