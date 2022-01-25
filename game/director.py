@@ -11,7 +11,8 @@ class Director:
         self.is_playing= True
         self.score= 300
         self.current_card= Card()
-        self.new_card= Card()
+        self.new_card= 0
+        self.players_guess = ""
 
     def start_game(self):
         """Starts game by running the main loop."""
@@ -30,11 +31,13 @@ class Director:
         print(f'The next card is: {self.new_card}') 
         #display new score
         print(f'Your score is: {self.change_score()}')
-        if (self.change_score()!= 0):
+        self.is_playing == (self.score > 0)
+        if self.is_playing:
             #call "keep_playing()"
             self.keep_playing()
         else:
             print("Sorry your score has reached 0.  Game Over.")
+        
 
             
     def change_score(self):
