@@ -32,9 +32,6 @@ class Director:
             if (guess.lower() == "h" or guess.lower() == "l"):
                 self.players_guess = guess
                 cond=0   
-            # elif (guess.lower() != "l"):
-            #     guess = input("Please enter h for higher or l for lower. ")
-            #     cond=1
             else:
                 guess = input("Please enter h for higher or l for lower. ")
                 cond=1
