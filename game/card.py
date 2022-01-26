@@ -21,6 +21,7 @@ class Card:
 
     def create_card(self):
         """Generates a new random face value of the card ranging from 1 to 13.
+        Returns the number to the source the called it.
         
         Args:
             self (Card): An instance of Card.
