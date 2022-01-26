@@ -10,7 +10,7 @@ class Director:
 
         self.is_playing= True
         self.score= 300
-        self.current_card= Card()
+        self.current_card= Card().create_card()
         self.new_card= 0
         self.players_guess = ""
 
@@ -34,7 +34,7 @@ class Director:
             Args: self (Director): an instance of Director.
         """
         #get new card
-        self.new_card = Card()
+        self.new_card = Card().create_card()
         #display new_card value
         print(f'The next card is: {self.new_card}') 
         #display new score
@@ -64,15 +64,28 @@ class Director:
         # if they want to play again then set self.is_playing to be True, else set it False
         
         # Ask question if they want to keep playing and put into a temp variable
-        player_input = input("Do you want to play again? [y/n]: ")
 
-        # Set self.is_playing to be True or False based upon the y or n answer
-        if player_input.lower() == "y":
-            self.is_playing = True
-        else:
-            self.is_playing = False  # since they answer wasn't "y" assume it is "n" or an invalid response
-            return # skip the last line in this method since they won't be playing anymore
-       
-        # If they want to play again, then the next round's "current_card" will be equal to
-        # the current round's "new_card"
-        self.current_card = self.new_card
+        if self.score <=0:
+            print(f"Thanks for playing! Your final score is {self.score}")
+            self.is_playing = False
+            return
+
+        player_input = ""
+
+        while player_input.lower != "y": 
+            
+            player_input = input("Do you want to play again? [y/n]: ")
+            print()
+            
+            if player_input.lower() == "n":
+                self.is_playing = False
+                print(f"Thanks for playing! Your final score is {self.score}")
+              # since they answer wasn't "y" assume it is "n" or an invalid response
+                # return # skip the last line in this method since they won't be playing anymore
+                return
+            elif player_input.lower() == "y":
+                self.is_playing = True
+                self.current_card = self.new_card
+                return
+            else:
+                print("Please enter a valid option.")

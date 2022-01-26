@@ -17,8 +17,6 @@ class Card:
                 self (Card): An instance of Card. 
             """
 
-        # the initial value of the card
-        self.value = 0 # not sure if we really need this? We can delete if we end up not needing it.
         
 
     def create_card(self):
@@ -27,8 +25,7 @@ class Card:
         Args:
             self (Card): An instance of Card.
         """
-        # Setting self.value to be some random integer between 1 and 13.
-        self.value = random.randint(1, 13)
+        return random.randint(1,13)
        
         
 
