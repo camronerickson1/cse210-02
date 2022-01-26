@@ -1,3 +1,4 @@
+from mimetypes import guess_all_extensions
 from game.card import Card
 
 
@@ -22,11 +23,24 @@ class Director:
 
     def get_inputs(self):
         """Displays the current and gets user input"""
-
+        cond=1
         #display the current card
         print(f"The card is: {self.current_card}")
         #ask user for their guess
-        self.players_guess = input("Higher or lower? [h/l] ")
+        guess = input("Higher or lower? [h/l] ")
+        while cond==1:
+            if (guess.lower() == "h" or guess.lower() == "l"):
+                self.players_guess = guess
+                cond=0   
+            # elif (guess.lower() != "l"):
+            #     guess = input("Please enter h for higher or l for lower. ")
+            #     cond=1
+            else:
+                guess = input("Please enter h for higher or l for lower. ")
+                cond=1
+
+
+
 
     def do_outputs(self):
         """Displays new_card's value.  Calls the change_score method.  Determines if the score has dropped to 0 and calls keep_playing method if >0.
