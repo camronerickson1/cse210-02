@@ -1,4 +1,3 @@
-from mimetypes import guess_all_extensions
 from game.card import Card   # Imports the Card class in the game directory, in the card.py file
 
 
